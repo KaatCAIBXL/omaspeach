@@ -247,7 +247,40 @@
         </div>
     </div>
 
+    <!-- Pijn submenu -->
+    <div class="pain-submenu" id="painSubmenu">
+        <div class="icon-item" onclick="speak('hoofdpijn')">
+            <img src="hoofdpijn.jpg" alt="hoofdpijn">
+            <div class="label">Hoofdpijn</div>
+        </div>
+        <div class="icon-item" onclick="speak('nekpijn')">
+            <img src="nekpijn.png" alt="nekpijn">
+            <div class="label">Nekpijn</div>
+        </div>
+        <div class="icon-item" onclick="speak('rugpijn')">
+            <img src="rugpijn.jpg" alt="rugpijn">
+            <div class="label">Rugpijn</div>
+        </div>
+        <div class="icon-item" onclick="speak('buikpijn')">
+            <img src="buikpijn.webp" alt="buikpijn">
+            <div class="label">Buikpijn</div>
+        </div>
+    </div>
+    <div class="back-button" id="backButton" onclick="hidePainMenu()" style="display: none;">← Terug</div>
+
     <script>
+        function showPainMenu() {
+            document.querySelector('.icons-container').classList.add('hidden');
+            document.getElementById('painSubmenu').classList.add('active');
+            document.getElementById('backButton').style.display = 'block';
+        }
+
+        function hidePainMenu() {
+            document.querySelector('.icons-container').classList.remove('hidden');
+            document.getElementById('painSubmenu').classList.remove('active');
+            document.getElementById('backButton').style.display = 'none';
+        }
+
         function speak(text) {
             // Check if browser supports speech synthesis
             if ('speechSynthesis' in window) {
