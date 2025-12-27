@@ -189,7 +189,7 @@
         <!-- Communicatie - MINDER VAAK GEBRUIKT -->
         <div class="icon-group">
             <div class="icon-item" onclick="speak('hallo')">
-                <img src="HALLO !.png" alt="hallo">
+                <img src="HALLO%20!.png" alt="hallo">
                 <div class="label">Hallo</div>
             </div>
             <div class="icon-item" onclick="speak('Kristien')">
@@ -233,12 +233,25 @@
             }
         }
 
-        // Check for missing images and log errors
+        // Fix image paths on page load (for GitHub Pages compatibility)
         window.addEventListener('load', function() {
             const images = document.querySelectorAll('img');
             images.forEach(function(img) {
+                // Fix paths with spaces or special characters
+                const originalSrc = img.getAttribute('src');
+                if (originalSrc && originalSrc.includes(' ')) {
+                    // URL encode spaces and special characters
+                    const fixedSrc = originalSrc.replace(/ /g, '%20');
+                    img.src = fixedSrc;
+                }
+                
                 img.addEventListener('error', function() {
                     console.error('Afbeelding niet gevonden: ' + img.src);
+                    // Try alternative paths
+                    const altSrc = originalSrc.replace(/ /g, '-');
+                    if (altSrc !== originalSrc) {
+                        img.src = altSrc;
+                    }
                 });
             });
         });
