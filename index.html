@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icoontjes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><circle cx="20" cy="20" r="18" fill="red"/></svg>') 20 20, auto;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .icons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .icon-group {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .icon-item {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            min-height: 250px;
+        }
+
+        .icon-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            background: #f0f0f0;
+        }
+
+        .icon-item:active {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .icon-item img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            cursor: inherit;
+            pointer-events: none;
+        }
+
+        .icon-item .label {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            word-wrap: break-word;
+            cursor: inherit;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .icons-container {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+            }
+
+            .icon-item {
+                padding: 20px;
+                min-height: 200px;
+            }
+
+            .icon-item img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .icon-item .label {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Icoontjes</h1>
+    <div class="icons-container">
+        <!-- Lichamelijke behoeften - MEEST GEBRUIKT (links) -->
+        <div class="icon-group">
+            <div class="icon-item" onclick="speak('toilette')">
+                <img src="toilette.jpg" alt="toilette">
+                <div class="label">Toilette</div>
+            </div>
+            <div class="icon-item" onclick="speak('eten')">
+                <img src="Eten.jpg" alt="eten">
+                <div class="label">Eten</div>
+            </div>
+            <div class="icon-item" onclick="speak('drinken')">
+                <img src="drinken.webp" alt="drinken">
+                <div class="label">Drinken</div>
+            </div>
+            <div class="icon-item" onclick="speak('medicatie')">
+                <img src="medicatie.png" alt="medicatie">
+                <div class="label">Medicatie</div>
+            </div>
+            <div class="icon-item" onclick="speak('slapen')">
+                <img src="SLAPEN.webp" alt="slapen">
+                <div class="label">Slapen</div>
+            </div>
+            <div class="icon-item" onclick="speak('tanden')">
+                <img src="tanden.png" alt="tanden">
+                <div class="label">Tanden</div>
+            </div>
+        </div>
+
+        <!-- Gevoelens - VAak GEBRUIKT -->
+        <div class="icon-group">
+            <div class="icon-item" onclick="speak('pijn')">
+                <img src="pijn.png" alt="pijn">
+                <div class="label">Pijn</div>
+            </div>
+            <div class="icon-item" onclick="speak('niet goed')">
+                <img src="niet_goed.webp" alt="niet goed">
+                <div class="label">Niet goed</div>
+            </div>
+            <div class="icon-item" onclick="speak('verdrietig')">
+                <img src="verdrietig.png" alt="verdrietig">
+                <div class="label">Verdrietig</div>
+            </div>
+            <div class="icon-item" onclick="speak('blij')">
+                <img src="blij.png" alt="blij">
+                <div class="label">Blij</div>
+            </div>
+            <div class="icon-item" onclick="speak('nee')">
+                <img src="nee.png" alt="nee">
+                <div class="label">Nee</div>
+            </div>
+        </div>
+
+        <!-- Activiteiten - REGELMATIG GEBRUIKT -->
+        <div class="icon-group">
+            <div class="icon-item" onclick="speak('tv')">
+                <img src="tv.png" alt="tv">
+                <div class="label">TV</div>
+            </div>
+            <div class="icon-item" onclick="speak('naar buiten')">
+                <img src="naar-buiten.png" alt="naar buiten">
+                <div class="label">Naar buiten</div>
+            </div>
+            <div class="icon-item" onclick="speak('gordijn')">
+                <img src="gordijn.png" alt="gordijn">
+                <div class="label">Gordijn</div>
+            </div>
+        </div>
+
+        <!-- Communicatie - MINDER VAAK GEBRUIKT -->
+        <div class="icon-group">
+            <div class="icon-item" onclick="speak('hallo')">
+                <img src="HALLO !.png" alt="hallo">
+                <div class="label">Hallo</div>
+            </div>
+            <div class="icon-item" onclick="speak('Kristien')">
+                <img src="Kristien.png" alt="Kristien">
+                <div class="label">Kristien</div>
+            </div>
+        </div>
+
+        <!-- Feestdagen - MINST GEBRUIKT (rechts) -->
+        <div class="icon-group">
+            <div class="icon-item" onclick="speak('vrolijk kerstfeest')">
+                <img src="Vrolijk-Kerstfeest-.jpg" alt="vrolijk kerstfeest">
+                <div class="label">Vrolijk Kerstfeest</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function speak(text) {
+            // Check if browser supports speech synthesis
+            if ('speechSynthesis' in window) {
+                // Cancel any ongoing speech
+                window.speechSynthesis.cancel();
+                
+                // Create a new utterance
+                const utterance = new SpeechSynthesisUtterance(text);
+                
+                // Set language to Dutch
+                utterance.lang = 'nl-NL';
+                
+                // Set voice properties for better clarity
+                utterance.rate = 0.9; // Slightly slower for clarity
+                utterance.pitch = 1;
+                utterance.volume = 1;
+                
+                // Speak the text
+                window.speechSynthesis.speak(utterance);
+            } else {
+                // Fallback for browsers that don't support speech synthesis
+                alert('Uw browser ondersteunt geen spraakfunctionaliteit.');
+            }
+        }
+    </script>
+</body>
+</html>
