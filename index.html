@@ -233,25 +233,24 @@
             }
         }
 
-        // Fix image paths on page load (for GitHub Pages compatibility)
+        // Debug en fix image paths on page load
         window.addEventListener('load', function() {
             const images = document.querySelectorAll('img');
-            images.forEach(function(img) {
-                // Fix paths with spaces or special characters
+            console.log('Totaal aantal afbeeldingen: ' + images.length);
+            
+            images.forEach(function(img, index) {
                 const originalSrc = img.getAttribute('src');
-                if (originalSrc && originalSrc.includes(' ')) {
-                    // URL encode spaces and special characters
-                    const fixedSrc = originalSrc.replace(/ /g, '%20');
-                    img.src = fixedSrc;
-                }
+                console.log('Afbeelding ' + index + ': ' + originalSrc);
+                
+                // Test if image loads
+                img.addEventListener('load', function() {
+                    console.log('✓ Geladen: ' + originalSrc);
+                });
                 
                 img.addEventListener('error', function() {
-                    console.error('Afbeelding niet gevonden: ' + img.src);
-                    // Try alternative paths
-                    const altSrc = originalSrc.replace(/ /g, '-');
-                    if (altSrc !== originalSrc) {
-                        img.src = altSrc;
-                    }
+                    console.error('✗ NIET gevonden: ' + img.src);
+                    console.error('   Probeerde: ' + img.src);
+                    console.error('   Origineel: ' + originalSrc);
                 });
             });
         });
