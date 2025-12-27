@@ -266,18 +266,47 @@
             <div class="label">Buikpijn</div>
         </div>
     </div>
-    <div class="back-button" id="backButton" onclick="hidePainMenu()" style="display: none;">← Terug</div>
+
+    <!-- Drinken submenu -->
+    <div class="drink-submenu" id="drinkSubmenu">
+        <div class="icon-item" onclick="speak('water')">
+            <img src="water.webp" alt="water">
+            <div class="label">Water</div>
+        </div>
+        <div class="icon-item" onclick="speak('gini')">
+            <img src="gini.webp" alt="gini">
+            <div class="label">Gini</div>
+        </div>
+        <div class="icon-item" onclick="speak('multivruchtensap')">
+            <img src="multivruchtensap.jpg" alt="multivruchtensap">
+            <div class="label">Multivruchtensap</div>
+        </div>
+        <div class="icon-item" onclick="speak('schweppes agrum')">
+            <img src="schweppes agrum.webp" alt="schweppes agrum">
+            <div class="label">Schweppes Agrum</div>
+        </div>
+    </div>
+    <div class="back-button" id="backButton" onclick="hideMenu()" style="display: none;">← Terug</div>
 
     <script>
         function showPainMenu() {
             document.querySelector('.icons-container').classList.add('hidden');
             document.getElementById('painSubmenu').classList.add('active');
+            document.getElementById('drinkSubmenu').classList.remove('active');
             document.getElementById('backButton').style.display = 'block';
         }
 
-        function hidePainMenu() {
+        function showDrinkMenu() {
+            document.querySelector('.icons-container').classList.add('hidden');
+            document.getElementById('drinkSubmenu').classList.add('active');
+            document.getElementById('painSubmenu').classList.remove('active');
+            document.getElementById('backButton').style.display = 'block';
+        }
+
+        function hideMenu() {
             document.querySelector('.icons-container').classList.remove('hidden');
             document.getElementById('painSubmenu').classList.remove('active');
+            document.getElementById('drinkSubmenu').classList.remove('active');
             document.getElementById('backButton').style.display = 'none';
         }
 
