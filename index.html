@@ -189,7 +189,7 @@
         <!-- Communicatie - MINDER VAAK GEBRUIKT -->
         <div class="icon-group">
             <div class="icon-item" onclick="speak('hallo')">
-                <img src="HALLO !.png" alt="hallo">
+                <img src="HALLO!.png" alt="hallo">
                 <div class="label">Hallo</div>
             </div>
             <div class="icon-item" onclick="speak('Kristien')">
@@ -232,6 +232,16 @@
                 alert('Uw browser ondersteunt geen spraakfunctionaliteit.');
             }
         }
+
+        // Check for missing images and log errors
+        window.addEventListener('load', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(function(img) {
+                img.addEventListener('error', function() {
+                    console.error('Afbeelding niet gevonden: ' + img.src);
+                });
+            });
+        });
     </script>
 </body>
 </html>
